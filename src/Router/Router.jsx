@@ -4,6 +4,7 @@ import Home from '../Pages/Home/Home';
 import AuthLayout from '../Layouts/AuthLayout';
 import { Component } from 'react';
 import Register from '../Pages/Auth/Register';
+import Login from '../Pages/Auth/Login';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         Component: Register,
+      },
+      {
+        path: 'login',
+        Component: Login,
       },
     ],
   },

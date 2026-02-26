@@ -13,7 +13,7 @@ import { Link, NavLink } from 'react-router';
 import UseAuth from '../../Hooks/UseAuth';
 
 export default function Navbar() {
-  const { user } = UseAuth();
+  const { user, signOut } = UseAuth();
 
   const activeClass = ({ isActive }) =>
     `flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
@@ -136,7 +136,7 @@ export default function Navbar() {
                   <div className="divider my-1 opacity-20"></div>
                   <li>
                     <button
-                      onClick={() => logOut()}
+                      onClick={signOut}
                       className="text-error font-bold hover:bg-error/10 py-3"
                     >
                       <FaSignOutAlt /> Logout

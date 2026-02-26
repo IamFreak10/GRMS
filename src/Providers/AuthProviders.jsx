@@ -30,12 +30,20 @@ export default function AuthProviders({ children }) {
     } finally {
       setLoading(false);
     }
+  };
 
+  const signOut = async () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUser(null);
   };
   const authInfo = {
     user,
+    setLoading,
     loading,
     signIn,
+    signOut,
+
   };
 
   return (

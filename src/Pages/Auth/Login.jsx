@@ -4,8 +4,8 @@ import Swal from 'sweetalert2';
 import UseAuth from '../../Hooks/UseAuth';
 
 const Login = () => {
- const {signIn}=UseAuth();
-  const [loading, setLoading] = useState(false);
+ const {signIn,setLoading,loading}=UseAuth();
+  
   const navigate = useNavigate();
   const location = useLocation();
 

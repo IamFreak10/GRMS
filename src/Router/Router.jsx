@@ -5,6 +5,10 @@ import AuthLayout from '../Layouts/AuthLayout';
 import { Component } from 'react';
 import Register from '../Pages/Auth/Register';
 import Login from '../Pages/Auth/Login';
+import DashBoardLayout from '../Layouts/DashBoardLayout';
+import UserRoutes from '../Routes/UserRoutes';
+import AdminRoutes from '../Routes/AdminRoutes';
+import ManageRoom from '../Pages/Dashboard/Admin/ManageRoom';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +32,24 @@ const router = createBrowserRouter([
       {
         path: 'login',
         Component: Login,
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: (
+      <UserRoutes>
+        <DashBoardLayout />
+      </UserRoutes>
+    ),
+    children: [
+      {
+        path: 'manage-rooms',
+        element: (
+          <AdminRoutes>
+            <ManageRoom />
+          </AdminRoutes>
+        ),
       },
     ],
   },

@@ -10,6 +10,7 @@ import UserRoutes from '../Routes/UserRoutes';
 import AdminRoutes from '../Routes/AdminRoutes';
 import ManageRoom from '../Pages/Dashboard/Admin/ManageRoom';
 import BookRoom from '../Pages/Dashboard/User/BookRoom';
+import Checkout from '../Pages/Dashboard/User/Checkout';
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
       {
         path: 'book-room',
         Component: BookRoom,
+      },
+      {
+        path: 'checkout',
+        //?From Jubayer PC
+        Component: Checkout
       },
       // {
       //   path: `confirm-booking/:id`,

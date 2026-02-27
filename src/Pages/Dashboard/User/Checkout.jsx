@@ -10,10 +10,13 @@ import {
     FaLocationDot
 } from "react-icons/fa6";
 import { RiInformationFill } from "react-icons/ri";
+import UseAuth from '../../../Hooks/UseAuth';
 
 const Checkout = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
+    const {user}=UseAuth();
+
 
     // চেক-আউট ডেট স্টেট (ডিফল্ট চেক-ইন এর পরের দিন)
     const [checkOutDate, setCheckOutDate] = useState('');
@@ -44,26 +47,29 @@ const Checkout = () => {
     const basePrice = bookingType === 'full-room' ? unitPrice * room.total_beds : unitPrice;
     const totalPrice = basePrice * totalDays;
 
-    // ব্যাকএন্ডে পাঠানোর জন্য ডাটা কনসোল লগ
-    const handleConfirmBooking = () => {
-        const bookingPayload = {
-            roomId: room.id,
-            roomNo: room.room_no,
-            branch: room.branch,
-            bookingType: bookingType, // 'bed' or 'full-room'
-            bedId: selectedBed ? selectedBed.id : 'all',
-            checkIn: checkInDate,
-            checkOut: checkOutDate || "Not Selected",
-            totalDays: totalDays,
-            totalAmount: totalPrice,
-            status: 'pending'
-        };
+const handleConfirmBooking = () => {
+    // ১. ভ্যালিডেশন: চেকআউট ডেট না থাকলে আটকানো
+    if (!checkOutDate) {
+        alert("Please select a check-out date!");
+        return;
+    }
 
-        console.log("🚀 Sending Data to Backend:", bookingPayload);
-        alert("Check Console to see the Data Structure!");
-
-        // এখানে তোর axiosSecure.post('/bookings', bookingPayload) হবে
+    const bookingPayload = {
+        userId:user?.id,
+        roomId: room.id,
+        bedId: selectedBed ? selectedBed.id : null, 
+        checkIn: checkInDate,
+        checkOut: checkOutDate,
+        totalAmount: totalPrice,
+        bookingType: bookingType, 
+        status: 'pending' 
     };
+
+    console.log("🚀 Prepared for Payment Page:", bookingPayload);
+
+    // ২. পেমেন্ট পেজে ডাটা নিয়ে যাওয়া
+    navigate('/dashboard/payment', { state: { bookingPayload } });
+};
 
     return (
         <div className="min-h-screen bg-[#F8FAFC] p-4 lg:p-10 font-sans text-neutral">

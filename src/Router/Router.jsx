@@ -11,6 +11,7 @@ import AdminRoutes from '../Routes/AdminRoutes';
 import ManageRoom from '../Pages/Dashboard/Admin/ManageRoom';
 import BookRoom from '../Pages/Dashboard/User/BookRoom';
 import Checkout from '../Pages/Dashboard/User/Checkout';
+import Payment from '../Pages/Dashboard/User/Payment';
 
 
 const router = createBrowserRouter([
@@ -62,7 +63,11 @@ const router = createBrowserRouter([
         path: 'checkout',
         //?From Jubayer PC
         Component: Checkout
-      },
+      },{
+        // !From sumon
+        path:'payment',
+        Component:Payment
+      }
       // {
       //   path: `confirm-booking/:id`,
       //   Component: ConfirmBooking,

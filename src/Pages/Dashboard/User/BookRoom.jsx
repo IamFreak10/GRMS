@@ -40,12 +40,15 @@ const BookRoom = () => {
   });
 
   const handleBooking = (room, bed, type) => {
-    navigate(
-      `/checkout/${room.id}/${bed ? bed.id : 'full'}?date=${selectedDate}&type=${type}`,
-      {
-        state: { room, bed, type, selectedDate },
+    // type: 'bed' অথবা 'full-room'
+    navigate(`/dashboard/checkout`, {
+      state: {
+        room,
+        selectedBed: bed,
+        bookingType: type,
+        checkInDate: selectedDate
       }
-    );
+    });
   };
 
   if (isLoading)
@@ -251,10 +254,9 @@ const BookRoom = () => {
                             disabled={isBooked || isGenderMismatch}
                             onClick={() => handleBooking(room, bed, 'bed')}
                             className={`h-12 rounded-2xl border-2 font-black text-[11px] transition-all flex items-center justify-center
-                              ${
-                                isBooked
-                                  ? 'bg-gray-100 border-gray-100 text-gray-300 cursor-not-allowed'
-                                  : 'bg-white border-primary/20 text-secondary hover:bg-primary hover:text-black hover:border-primary shadow-sm active:scale-90'
+                              ${isBooked
+                                ? 'bg-gray-100 border-gray-100 text-gray-300 cursor-not-allowed'
+                                : 'bg-white border-primary/20 text-secondary hover:bg-primary hover:text-black hover:border-primary shadow-sm active:scale-90'
                               }
                             `}
                           >

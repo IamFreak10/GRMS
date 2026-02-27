@@ -9,6 +9,8 @@ import DashBoardLayout from '../Layouts/DashBoardLayout';
 import UserRoutes from '../Routes/UserRoutes';
 import AdminRoutes from '../Routes/AdminRoutes';
 import ManageRoom from '../Pages/Dashboard/Admin/ManageRoom';
+import BookRoom from '../Pages/Dashboard/User/BookRoom';
+
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
           </AdminRoutes>
         ),
       },
+      {
+        path: 'book-room',
+        Component: BookRoom,
+      },
+      // {
+      //   path: `confirm-booking/:id`,
+      //   Component: ConfirmBooking,
+      // },
     ],
   },
 ]);

@@ -57,6 +57,8 @@ const handleConfirmBooking = () => {
     const bookingPayload = {
         userId:user?.id,
         roomId: room.id,
+        userName:user?.name,
+        userEmail:user?.email,
         bedId: selectedBed ? selectedBed.id : null, 
         checkIn: checkInDate,
         checkOut: checkOutDate,

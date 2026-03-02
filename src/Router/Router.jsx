@@ -12,6 +12,7 @@ import ManageRoom from '../Pages/Dashboard/Admin/ManageRoom';
 import BookRoom from '../Pages/Dashboard/User/BookRoom';
 import Checkout from '../Pages/Dashboard/User/Checkout';
 import Payment from '../Pages/Dashboard/User/Payment';
+import MyBookings from '../Pages/Dashboard/User/MyBookings';
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,9 @@ const router = createBrowserRouter([
         // !From sumon
         path:'payment',
         Component:Payment
+      },{
+        path:'my-bookings',
+        Component:MyBookings
       }
       // {
       //   path: `confirm-booking/:id`,

@@ -32,6 +32,14 @@ export default function AuthProviders({ children }) {
     }
   };
 
+  // Social Login
+  const saveSocialLogin = (token, user) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser(user);
+    setLoading(false);
+  };
+
   const signOut = async () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -43,7 +51,7 @@ export default function AuthProviders({ children }) {
     loading,
     signIn,
     signOut,
-
+    saveSocialLogin,
   };
 
   return (

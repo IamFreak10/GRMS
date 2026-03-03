@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'login-success',
-        element: <SocialLoginSuccess />,
+        Component: SocialLoginSuccess,
       },
     ],
   },
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         Component: BookRoom,
       },
       {
-        path: 'checkout',
+        path: 'checkout-request',
         //?From Jubayer PC
         Component: Checkout,
       },

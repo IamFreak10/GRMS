@@ -39,12 +39,27 @@ const BookRoom = () => {
   });
 
   const handleBooking = (room, bed, type) => {
-    navigate(`/dashboard/checkout`, {
+    const checkOutDate = new Date(selectedDate);
+    checkOutDate.setDate(checkOutDate.getDate() + 1);
+
+    const bookingPayload = {
+      userId: user?.id,
+      roomId: parseInt(room.id),
+      bedId: bed ? parseInt(bed.id) : null,
+      checkIn: selectedDate,
+      checkOut: checkOutDate.toISOString().split('T')[0],
+      totalAmount:
+        type === 'full-room'
+          ? Number(room.price_per_day * room.total_beds)
+          : Number(room.price_per_day),
+      userName: user?.name,
+      email: user?.email,
+      branch: branch,
+    };
+
+    navigate(`/dashboard/payment`, {
       state: {
-        room,
-        selectedBed: bed,
-        bookingType: type,
-        checkInDate: selectedDate,
+        bookingPayload: bookingPayload,
       },
     });
   };

@@ -1,9 +1,24 @@
-// navLinks.js
-import { FaHome, FaBed, FaCalendarCheck, FaInfoCircle } from "react-icons/fa";
+import { Home, Bed, CalendarCheck, Info } from 'lucide-react';
 
 export const navLinks = [
-  { name: "Home", path: "/", icon: FaHome },
-  { name: "Rooms", path: "/rooms", icon: FaBed },
-  { name: "Booking", path: "/booking", icon: FaCalendarCheck },
-  { name: "About", path: "/about", icon: FaInfoCircle },
+  {
+    name: 'Home',
+    path: '/',
+    icon: Home,
+  },
+  {
+    name: 'Rooms',
+    path: '/dashboard/book-room', 
+    icon: Bed,
+  },
+  {
+    name: 'Booking',
+    path: '/dashboard/my-bookings', 
+    icon: CalendarCheck,
+  },
+  {
+    name: 'About',
+    path: '/about',
+    icon: Info,
+  },
 ];

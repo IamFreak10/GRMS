@@ -12,7 +12,14 @@ import ManageRoom from '../Pages/Dashboard/Admin/ManageRoom';
 import BookRoom from '../Pages/Dashboard/User/BookRoom';
 import Checkout from '../Pages/Dashboard/User/Checkout';
 import Payment from '../Pages/Dashboard/User/Payment';
-
+import MyBookings from '../Pages/Dashboard/User/MyBookings';
+import SocialLoginSuccess from '../Pages/Auth/SocialLoginSuccess';
+import Profile from '../Shared/Profile/Profile';
+import UploadDoc from '../Pages/Dashboard/User/UploadDoc';
+import UserStat from '../Pages/Dashboard/User/UserStat';
+import UserInteractivity from '../Pages/Dashboard/Admin/ManageRoom/UserInteractivity';
+import AdminStats from '../Pages/Dashboard/Admin/AdminStats';
+import DashboardHome from '../Pages/Dashboard/Common/DashboardHome';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +29,10 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: 'profile',
+        Component: Profile,
       },
     ],
   },
@@ -37,6 +48,10 @@ const router = createBrowserRouter([
         path: 'login',
         Component: Login,
       },
+      {
+        path: 'login-success',
+        element: <SocialLoginSuccess />,
+      },
     ],
   },
   {
@@ -47,6 +62,10 @@ const router = createBrowserRouter([
       </UserRoutes>
     ),
     children: [
+      {
+        index: true,
+        Component: DashboardHome,
+      },
       {
         path: 'manage-rooms',
         element: (
@@ -62,16 +81,33 @@ const router = createBrowserRouter([
       {
         path: 'checkout',
         //?From Jubayer PC
-        Component: Checkout
-      },{
+        Component: Checkout,
+      },
+      {
         // !From sumon
-        path:'payment',
-        Component:Payment
-      }
-      // {
-      //   path: `confirm-booking/:id`,
-      //   Component: ConfirmBooking,
-      // },
+        path: 'payment',
+        Component: Payment,
+      },
+      {
+        path: 'my-bookings',
+        Component: MyBookings,
+      },
+      {
+        path: 'upload',
+        Component: UploadDoc,
+      },
+      {
+        path: 'payment-history',
+        Component: UserStat,
+      },
+      {
+        path: 'manage-users',
+        Component: UserInteractivity,
+      },
+      {
+        path: 'earnings',
+        Component: AdminStats,
+      },
     ],
   },
 ]);

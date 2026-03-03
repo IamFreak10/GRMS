@@ -17,6 +17,8 @@ const Payment = () => {
 
   const bookingPayload = state?.bookingPayload;
 
+  console.log(bookingPayload);
+
   if (!bookingPayload) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-white p-10">

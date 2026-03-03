@@ -50,7 +50,7 @@ export default function DashBoardLayout() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/checkout" className={navItemClass}>
+              <NavLink to="/dashboard/checkout-request" className={navItemClass}>
                 <FaDoorOpen /> Room Checkout
               </NavLink>
             </li>

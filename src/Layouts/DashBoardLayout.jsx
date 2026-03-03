@@ -9,7 +9,7 @@ import {
   FaChartLine,
   FaDoorOpen,
   FaCirclePlus, // 5.5.0 fa6 এ এটাই সঠিক নাম
-  FaBarsStaggered
+  FaBarsStaggered,
 } from 'react-icons/fa6';
 import UseAuth from '../Hooks/UseAuth';
 
@@ -34,17 +34,45 @@ export default function DashBoardLayout() {
       <ul className="space-y-3">
         {!isAdmin ? (
           <>
-            <li><NavLink to="/dashboard/book-room" className={navItemClass}><FaHotel /> Book Room</NavLink></li>
-            <li><NavLink to="/dashboard/my-bookings" className={navItemClass}><FaHotel /> My Bookings</NavLink></li>
-            <li><NavLink to="/dashboard/payment-history" className={navItemClass}><FaWallet /> Payment Stat</NavLink></li>
-            <li><NavLink to="/dashboard/checkout" className={navItemClass}><FaDoorOpen /> Room Checkout</NavLink></li>
+            <li>
+              <NavLink to="/dashboard/book-room" className={navItemClass}>
+                <FaHotel /> Book Room
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/my-bookings" className={navItemClass}>
+                <FaHotel /> My Bookings
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/payment-history" className={navItemClass}>
+                <FaWallet /> Payment Stat
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/checkout" className={navItemClass}>
+                <FaDoorOpen /> Room Checkout
+              </NavLink>
+            </li>
           </>
         ) : (
           <>
-            <li><NavLink to="/dashboard/manage-rooms" className={navItemClass}><FaBed /> Manage Rooms</NavLink></li>
-            <li><NavLink to="/dashboard/add-room" className={navItemClass}><FaCirclePlus /> Add New Room</NavLink></li>
-            <li><NavLink to="/dashboard/earnings" className={navItemClass}><FaChartLine /> Earning Stats</NavLink></li>
-            <li><NavLink to="/dashboard/manage-users" className={navItemClass}><FaUsers /> User Interactivity</NavLink></li>
+            <li>
+              <NavLink to="/dashboard/manage-rooms" className={navItemClass}>
+                <FaBed /> Manage Rooms
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/dashboard/earnings" className={navItemClass}>
+                <FaChartLine /> Earning Stats
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/manage-users" className={navItemClass}>
+                <FaUsers /> User Interactivity
+              </NavLink>
+            </li>
           </>
         )}
       </ul>
@@ -54,18 +82,25 @@ export default function DashBoardLayout() {
   return (
     <div className="bg-base-100 min-h-screen">
       <Navbar />
-      
+
       {/* Drawer Structure for Perfect Mobile Responsiveness */}
       <div className="drawer lg:drawer-open">
-        <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-        
+        <input
+          id="dashboard-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+        />
+
         <div className="drawer-content flex flex-col">
           {/* Mobile Header: Only shows on small screens */}
           <div className="lg:hidden flex items-center justify-between p-4 bg-white border-b sticky top-0 z-30 shadow-sm">
             <h2 className="font-black text-primary uppercase tracking-widest text-xs">
               Dashboard
             </h2>
-            <label htmlFor="dashboard-drawer" className="btn btn-ghost btn-sm drawer-button">
+            <label
+              htmlFor="dashboard-drawer"
+              className="btn btn-ghost btn-sm drawer-button"
+            >
               <FaBarsStaggered className="text-primary text-xl" />
             </label>
           </div>
@@ -80,13 +115,19 @@ export default function DashBoardLayout() {
 
         {/* Sidebar Overlay and Content */}
         <aside className="drawer-side z-[100]">
-          <label htmlFor="dashboard-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+          <label
+            htmlFor="dashboard-drawer"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
           <div className="w-72 min-h-full bg-white p-6 border-r border-base-200 shadow-xl lg:shadow-none">
             {/* Brand Logo in Sidebar (Visible on mobile) */}
             <div className="lg:hidden mb-8">
-              <h1 className="text-2xl font-black text-neutral">Nexus<span className="text-primary">.</span></h1>
+              <h1 className="text-2xl font-black text-neutral">
+                Nexus<span className="text-primary">.</span>
+              </h1>
             </div>
-            
+
             <SideLinks />
           </div>
         </aside>

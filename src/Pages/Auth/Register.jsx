@@ -65,9 +65,16 @@ const Register = () => {
       // Axios এ স্ট্যাটাস চেক করা হয় status দিয়ে
       if (userRes.status === 200 || userRes.status === 201) {
         Swal.fire('Success', 'User created!', 'success');
-        
+
         // ফর্ম ক্লিয়ার
-        setFormData({ name: '', email: '', password: '', gender: 'male', age: '', phone: '' });
+        setFormData({
+          name: '',
+          email: '',
+          password: '',
+          gender: 'male',
+          age: '',
+          phone: '',
+        });
         setSelectedFile(null);
         setPreviewUrl(null);
       }
